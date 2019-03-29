@@ -23,7 +23,7 @@ def main():
         db.getSenseHatData()
         time.sleep(freq)
     db.displayData()
-    sense.show_message("Recorded Data!",text_colour = [0,255,0],scroll_speed=0.05)
+    sense.show_message("Data Added!",text_colour = [0,255,0],scroll_speed=0.05)
 
 #execute main program
 main()
