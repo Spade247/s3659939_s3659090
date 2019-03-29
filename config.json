@@ -1,6 +1,6 @@
 {
-    "min_temperature": 20,
-    "max_temperature": 30,
+    "max_humidty": 60,
     "min_humidty": 50,
-    "max_humidty": 60
+    "min_temperature": 20,
+    "max_temperature": 30
 }
