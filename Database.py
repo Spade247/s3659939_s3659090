@@ -3,8 +3,6 @@ import sqlite3
 from virtual_sense_hat import VirtualSenseHat as vsh
 
 dbName = "sensehat.db"
-#defaulted to 3 but should be 60 
-freq = 3
 
 #Create the database if it hasnt been created already
 def createDB():
@@ -43,15 +41,5 @@ def displayData():
         print(row)
     connection.close()
 
-#main function 
-def main():
-    for i in range(0,3):
-        createDB()
-        getSenseHatData()
-        time.sleep(freq)
-    displayData()
-
-#execute main program
-main()
 
 
