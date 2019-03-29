@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import Monitor as mon
 import Database as db
 import time 
