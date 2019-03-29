@@ -26,7 +26,7 @@ def getSenseHatData():
 def recordData(temp,humidity):
     connection = sqlite3.connect(dbName)
     cursor = connection.cursor()
-    insertQuery = "INSERT INTO TEMPERATURE_data values(datetime('now'),"+str(temp)+","+str(humidity)+")"
+    insertQuery = "INSERT INTO TEMPERATURE_data values(datetime('now','localtime'),"+str(temp)+","+str(humidity)+")"
     cursor.execute(insertQuery)
     connection.commit()
     connection.close()
