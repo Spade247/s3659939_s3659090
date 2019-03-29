@@ -1,17 +1,13 @@
 import json 
 
-#Created A Dictionary to store the temperature and humidity ranges
-config = {
-            "min_temperature":20,
-            "max_temperature":30,
-            "min_humidty":50,
-            "max_humidty":60,
-            }
+#Created A string to store the temperature and humidity ranges
+config = '{"min_temperature":20, "max_temperature":30,"min_humidty":50,"max_humidty":60}'
 
 #A method that creates the config.json file with the ranges 
 def create_config_file():
+    config_dict = json.loads(config)
     with open("config.json","w") as json_file:  
-        json.dump(config,json_file,indent = 4)
+        json.dump(config_dict,json_file,indent = 4)
 
 #A method that returns the config.json file into a Dictionary
 def get_config_file():
