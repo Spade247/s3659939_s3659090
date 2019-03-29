@@ -19,11 +19,6 @@ def get_config_file():
         config_file = json.load(json_file)
     return config_file
 
-#Test DATA
-create_config_file()
-d1 = get_config_file()
-print(d1)
-
 
 
 
