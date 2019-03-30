@@ -2,6 +2,7 @@
 import Monitor as mon
 import Database as db
 import time 
+import Schedule as schedlr
 from virtual_sense_hat import VirtualSenseHat as vsh
 import Notification as notif
 
@@ -16,7 +17,8 @@ config = mon.get_config_file()
 #main function 
 def main():
     sense = vsh.getSenseHat()
-
+    schedlr.createSchedule(freq)
+    
     #the range is set to frequency of the records being created (1 per minute depending on the cronjob)
     for i in range(0,freq):
         db.createDB()
