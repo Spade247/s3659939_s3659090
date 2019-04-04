@@ -22,6 +22,7 @@ class MonitorAndNotify:
         weather.verifyTemperature()
         weather.verifyHumidity()
         dataManager.closeDBConnection()
+        sense.show_message("Data Added!",text_colour = [0,255,0],scroll_speed=0.05)
         sense.clear()
 
 # End of main
