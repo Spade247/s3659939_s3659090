@@ -3,7 +3,7 @@ from DataLogger import DataLogger
 from DatabaseManager import DatabaseManager
 from Monitor import Monitor
 from Notification import Notification 
-from sense_hat import SenseHat
+from virtual_sense_hat import SenseHat
 from Schedule import Schedule
 
 class Weather:
