@@ -5,7 +5,6 @@ from Monitor import Monitor
 from Notification import Notification 
 from Weather import Weather
 from sense_hat import SenseHat
-from Schedule import Schedule
 from crontab import CronTab
 import os
 

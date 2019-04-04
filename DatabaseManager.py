@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from DatabaseManager import DatabaseManager
 from Monitor import Monitor
 from Notification import Notification 
 from Weather import Weather
