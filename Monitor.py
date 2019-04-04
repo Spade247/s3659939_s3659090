@@ -1,20 +1,27 @@
 import json 
+class Monitor:
+    def __init__(self):
 
-#Created A string to store the temperature and humidity ranges
-config = '{"min_temperature":20, "max_temperature":30,"min_humidty":50,"max_humidty":60}'
+        with open ('config.json','r') as configFile:
 
-#A method that creates the config.json file with the ranges 
-def create_config_file():
-    config_dict = json.loads(config)
-    with open("config.json","w") as json_file:  
-        json.dump(config_dict,json_file,indent = 4)
-
-#A method that returns the config.json file into a Dictionary
-def get_config_file():
-    with open("config.json","r") as json_file:
-        config_file = json.load(json_file)
-    return config_file
+            self.__ranges = json.load(configFile)
+            self.__maximumTemperature = self.__ranges['max_temperature']
+            self.__minimumTemperature = self.__ranges['min_temperature']
+            self.__maximumHumidity = self.__ranges['max_humidity']
+            self.__minimumHumidity = self.__ranges['min_humidity']
 
 
+
+    def getMinTemperature(self):
+        return (self.__minimumTemperature)
+    
+    def getMaxTemperature(self):
+        return (self.__maximumTemperature)
+
+    def getMinHumidity(self):
+        return (self.__minimumHumidity)
+
+    def getMaxHumidity(self):
+        return (self.__maximumHumidity)
 
 

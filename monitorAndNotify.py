@@ -1,37 +1,33 @@
 #!/usr/bin/env python3
-import Monitor as mon
-import Database as db
-import time 
-import Schedule as schedlr
-from virtual_sense_hat import VirtualSenseHat as vsh
-import Notification as notif
+from DataLogger import DataLogger 
+from DatabaseManager import DatabaseManager
+from Monitor import Monitor
+from Notification import Notification 
+from Weather import Weather
+from sense_hat import SenseHat
+from Schedule import Schedule
 
-#defaulted to 1 record per minute
-freq = 1
-#Creates the config file with the ranges if it hasnt already been created
-mon.create_config_file()
+class MonitorAndNotify:
 
-#store the config details on a dictionary
-config = mon.get_config_file()
+    def __init__(self):
 
-#main function 
-def main():
-    sense = vsh.getSenseHat()
-    schedlr.createSchedule(freq)
-    
-    #the range is set to frequency of the records being created (1 per minute depending on the cronjob)
-    for i in range(0,freq):
-        db.createDB()
-        db.getSenseHatData()
-        time.sleep(freq)
-    db.displayData()
-    sense.show_message("Data Added!",text_colour = [0,255,0],scroll_speed=0.05)
+        Scheduler = Schedule()
+        data = DataLogger()
+        dataManager = DatabaseManager(data)
+        monitor = Monitor()
+        weather = Weather(data,dataManager,monitor)
+        sense = SenseHat()
 
-#execute main program
-main()
+        Scheduler.createSchedule()
+        weather.verifyTemperature()
+        weather.verifyHumidity()
+        dataManager.closeDBConnection()
+        sense.clear()
 
+# End of main
 
+ 
 
+# Call main function
 
-
-
+MonitorAndNotify()
