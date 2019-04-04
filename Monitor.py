@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-from DataLogger import DataLogger 
-from DatabaseManager import DatabaseManager
-from Notification import Notification 
-from Weather import Weather
-from virtual_sense_hat import SenseHat
-from Schedule import Schedule
 import json 
+
 class Monitor:
     def __init__(self):
 
