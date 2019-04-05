@@ -1,9 +1,4 @@
-Date,Temp,Humidity,Status
-2019-04-01,14.0,23.0,BAD! 6.0*C below minimum temperature:  27.0% below minimum humidity:  
-2019-04-02,40.0,70.0,BAD! 10.0*C above maximum temperature:  10.0% above maximum humidity:  
-2019-04-03,34.0,23.2,BAD! 4.0*C above maximum temperature:  26.8% below minimum humidity:  
-2019-04-04,25.8,56.0,OK! 
-2019-04-05,32.7,35.5,BAD! 2.7*C above maximum temperature:  14.5% below minimum humidity:  
-2019-04-06,35.0,36.1,BAD! 5.0*C above maximum temperature:  13.9% below minimum humidity:  
-2019-04-07,43.0,41.2,BAD! 13.0*C above maximum temperature:  8.8% below minimum humidity:  
-2019-04-09,25.0,73.0,BAD! 13.0% above maximum humidity:  
+Date,Status
+2019-04-05,BAD! 2.7*C above maximum temperature:  14.5% below minimum humidity:  
+2019-04-06,BAD! 5.6*C above maximum temperature:  15.0% below minimum humidity:  
+2019-04-07,BAD! 13.0*C above maximum temperature:  8.8% below minimum humidity:  

@@ -18,7 +18,7 @@ class ReportManager:
         self.__csvFile = csvFile
         with open(self.__csvFile, "w", newline="") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(["Date", "Temp","Humidity","Status"])
+            writer.writerow(["Date","Status"])
 
             # print("array of dates: ",self.__arrayOfDates)
 
@@ -33,6 +33,6 @@ class ReportManager:
                 # print("message: {}".format(self.__message))
 
                 
-                writer.writerow([str(date), str(self.__avgTemperature),str(self.__avgHumidity),str(self.__message)])
+                writer.writerow([str(date),str(self.__message)])
     
     
