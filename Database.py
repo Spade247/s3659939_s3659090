@@ -43,6 +43,7 @@ class Database:
         return (self.__arrayOfDates)
 
     def getAvgTemperature(self,date):
+        print(str(date))
         self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + str(date) +"'")
         self.__avgTemperature = self.__database.fetchone()
         
