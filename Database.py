@@ -14,6 +14,9 @@ class Database:
         self.__date = None
         self.__count = None
         self.__sense = SenseHat()
+        self.__arrayOfDates = None
+        self.__avgTemperature = None
+        self.__avgHumidity = None
 
     def createDBTable(self,table):
         self.__table = table
@@ -26,14 +29,32 @@ class Database:
         self.__sense.clear()
         self.__sense.show_message("Data Added!",text_colour = [0,255,0],scroll_speed=0.05)
 
- 
-    
     def verifyDate(self, todayDate):
         self.__database.execute("SELECT COUNT(*) FROM TEMPERATURE_data WHERE date like ""'%" + todayDate +"'")
         self.__date = self.__database.fetchone()
         self.__count = self.__date[0]
         
         return (self.__count)
+
+    def getDates(self):
+        self.__database.execute("SELECT distinct date from TEMPERATURE_data")
+        self.__arrayOfDates = self.__database.fetchall()
+        
+        return (self.__arrayOfDates)
+
+    def getAvgTemperature(self,date):
+        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + date +"'")
+        self.__avgTemperature = self.__database.fetchone()
+        
+        
+        return (self.__avgTemperature[0])
+    
+    def getAvgHumidity(self,date):
+        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%" + date +"'")
+        self.__avgHumidity = self.__database.fetchone()
+        
+        
+        return (self.__avgHumidity[0])
 
     def saveChanges(self):
 
