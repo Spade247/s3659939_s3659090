@@ -1,6 +1,6 @@
 from datetime import datetime
 from datetime import date
-from sense_hat import SenseHat
+from virtual_sense_hat import SenseHat
 
 class DataLogger:
 

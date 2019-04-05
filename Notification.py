@@ -1,4 +1,3 @@
-
 from DatabaseManager import DatabaseManager
 from pushbullet import Pushbullet
 class Notification:
