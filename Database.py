@@ -2,7 +2,7 @@
 import sqlite3
 from datetime import datetime
 from datetime import date
-from virtual_sense_hat import SenseHat
+from virtual_sense_hat import VirtualSenseHat as SenseHat
 
 class Database:
     
@@ -44,18 +44,20 @@ class Database:
 
     def getAvgTemperature(self,date):
         print(str(date))
-        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + str(date) +"'")
+        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + date  +"'")
         self.__avgTemperature = self.__database.fetchone()
+        self.__avgTemperature = round(self.__avgTemperature[0],1)
         
         
-        return (self.__avgTemperature[0])
+        return (self.__avgTemperature)
     
     def getAvgHumidity(self,date):
-        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%" + str(date) +"'")
+        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%" + date +"'")
         self.__avgHumidity = self.__database.fetchone()
+        self.__avgHumidity = round(self.__avgHumidity[0],1)
         
         
-        return (self.__avgHumidity[0])
+        return (self.__avgHumidity)
 
     def saveChanges(self):
 
