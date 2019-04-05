@@ -14,7 +14,7 @@ class Schedule:
     def createSchedule(self):
         self.__cron.remove_all()
         # self.__job = self.__cron.new(command = "cd "+ str(self.__directorypath) + " && " + str(self.__filepath) )
-        self.__job = self.__cron.new(command = "cd " +str(self.__directorypath)+" /usr/bin/env python3 " + str(self.__filepath) )
+        self.__job = self.__cron.new(command = "cd " +str(self.__directorypath)+" && /usr/bin/env python3 " + str(self.__filepath) )
         self.__job.minute.every(1)
         self.__cron.write()
  
