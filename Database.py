@@ -43,14 +43,14 @@ class Database:
         return (self.__arrayOfDates)
 
     def getAvgTemperature(self,date):
-        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + date +"'")
+        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%?'",(str(date)))
         self.__avgTemperature = self.__database.fetchone()
         
         
         return (self.__avgTemperature[0])
     
     def getAvgHumidity(self,date):
-        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%" + date +"'")
+        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%?'",(str(date)))
         self.__avgHumidity = self.__database.fetchone()
         
         
