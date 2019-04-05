@@ -22,8 +22,7 @@ class Notification:
     def sendNotification(self):
         self.__databaseManager.verifyDate()
 
-        # if(self.__databaseManager.verifyDate()):
-        if(True):
+        if(self.__databaseManager.verifyDate()):
 
             self.__push = self.__pushbullet.push_note(self.__messageHead,self.__messageBody)
         else:

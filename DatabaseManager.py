@@ -28,7 +28,9 @@ class DatabaseManager:
         
         count = self.__database.verifyDate(self.__currentDate)
 
-        if (count > 1):
+        if (count == 1):
+            return True
+        elif (count >= 1 ):
             return False
         else:
             return True

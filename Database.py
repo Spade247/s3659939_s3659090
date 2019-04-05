@@ -29,7 +29,7 @@ class Database:
  
     
     def verifyDate(self, todayDate):
-        self.__database.execute("SELECT COUNT(1) FROM TEMPERATURE_data WHERE date = ""'" + todayDate +"'")
+        self.__database.execute("SELECT COUNT(*) FROM TEMPERATURE_data WHERE date like ""'%" + todayDate +"'")
         self.__date = self.__database.fetchone()
         self.__count = self.__date[0]
         
