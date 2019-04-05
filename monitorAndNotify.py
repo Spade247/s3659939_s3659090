@@ -11,14 +11,14 @@ class MonitorAndNotify:
 
     def __init__(self):
 
-        Scheduler = Schedule()
+        # Scheduler = Schedule()
         data = DataLogger()
         dataManager = DatabaseManager(data)
         monitor = Monitor()
         weather = Weather(data,dataManager,monitor)
         sense = SenseHat()
 
-        Scheduler.createSchedule()
+        # Scheduler.createSchedule()
         weather.verifyTemperature()
         weather.verifyHumidity()
         dataManager.closeDBConnection()
