@@ -19,8 +19,8 @@ class Report:
             writer.writerow(["Date", "Temp","Humidity"])
 
             for date in self.__arrayOfDates:
-                self.__avgTemperature = self.__database.getAvgTemperature(date)
-                self.__avgHumidity = self.__database.getAvgHumidity(date)
+                self.__avgTemperature = self.__database.getAvgTemperature(str(date))
+                self.__avgHumidity = self.__database.getAvgHumidity(str(date))
                 writer.writerow([str(date), str(self.__avgTemperature),str(self.__avgHumidity)])
 
 
