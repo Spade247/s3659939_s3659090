@@ -7,7 +7,7 @@ class Schedule:
     def __init__(self):
         self.__directorypath = os.path.abspath("")
         self.__filepath = os.path.abspath("monitorAndNotify.py")
-        self.__cron = CronTab(user = "pi")
+        self.__cron = CronTab(user = True)
         self.__job = None
         
     
