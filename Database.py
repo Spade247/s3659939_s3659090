@@ -30,21 +30,21 @@ class Database:
         self.__sense.show_message("Data Added!",text_colour = [0,255,0],scroll_speed=0.05)
 
     def verifyDate(self, todayDate):
-        self.__database.execute("SELECT COUNT(*) FROM TEMPERATURE_data WHERE date like ""'%" + todayDate +"'")
+        self.__database.execute("SELECT COUNT(*) FROM TEMPERATURE_data WHERE date LIKE ""'%" + todayDate +"'")
         self.__date = self.__database.fetchone()
         self.__count = self.__date[0]
         
         return (self.__count)
 
     def getDates(self):
-        self.__database.execute("SELECT distinct date from TEMPERATURE_data")
+        self.__database.execute("SELECT DISTINCT date FROM TEMPERATURE_data ORDER BY date ASC")
         self.__arrayOfDates = self.__database.fetchall()
-        
+        self.__arrayOfDates = [item[0] for item in self.__arrayOfDates] 
         return (self.__arrayOfDates)
 
     def getAvgTemperature(self,date):
         print(str(date))
-        self.__database.execute("select avg(temperature) from TEMPERATURE_data where date like ""'%" + date  +"'")
+        self.__database.execute("SELECT avg(temperature) FROM TEMPERATURE_data WHERE date LIKE ""'%" + date  +"'")
         self.__avgTemperature = self.__database.fetchone()
         self.__avgTemperature = round(self.__avgTemperature[0],1)
         
@@ -52,7 +52,7 @@ class Database:
         return (self.__avgTemperature)
     
     def getAvgHumidity(self,date):
-        self.__database.execute("select avg(humidity) from TEMPERATURE_data where date like ""'%" + date +"'")
+        self.__database.execute("SELECT avg(humidity) FROM TEMPERATURE_data WHERE date LIKE ""'%" + date +"'")
         self.__avgHumidity = self.__database.fetchone()
         self.__avgHumidity = round(self.__avgHumidity[0],1)
         
