@@ -4,7 +4,7 @@ from DatabaseManager import DatabaseManager
 from Monitor import Monitor
 from Notification import Notification 
 from Weather import Weather
-from virtual_sense_hat import VirtualSenseHat as SenseHat
+from virtual_sense_hat import VirtualSenseHat
 from Schedule import Schedule
 
 class MonitorAndNotify:
@@ -16,7 +16,7 @@ class MonitorAndNotify:
         dataManager = DatabaseManager(data)
         monitor = Monitor()
         weather = Weather(data,dataManager,monitor)
-        sense = SenseHat()
+        sense = VirtualSenseHat.getSenseHat()
 
         # Scheduler.createSchedule()
         weather.verifyTemperature()

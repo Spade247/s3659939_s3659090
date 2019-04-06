@@ -1,8 +1,7 @@
-
 import sqlite3
 from datetime import datetime
 from datetime import date
-from virtual_sense_hat import VirtualSenseHat as SenseHat
+from virtual_sense_hat import VirtualSenseHat 
 
 class Database:
     
@@ -13,7 +12,7 @@ class Database:
         self.__table = None
         self.__date = None
         self.__count = None
-        self.__sense = SenseHat()
+        self.__sense = VirtualSenseHat.getSenseHat()
         self.__arrayOfDates = None
         self.__avgTemperature = None
         self.__avgHumidity = None

@@ -1,6 +1,6 @@
 from datetime import datetime
 from datetime import date
-from virtual_sense_hat import VirtualSenseHat as SenseHat
+from virtual_sense_hat import VirtualSenseHat 
 
 class DataLogger:
 
@@ -9,7 +9,7 @@ class DataLogger:
         self.__table = "TEMPERATURE_data"
         self.__date = str(date.today())
         self.__time = datetime.now().strftime("%H:%M:%S")
-        self.__sense = SenseHat()
+        self.__sense = VirtualSenseHat.getSenseHat()
         self.__humidity = round(self.__sense.get_humidity(),2)
         self.__temperature = round(self.__sense.get_temperature(),2)
 
