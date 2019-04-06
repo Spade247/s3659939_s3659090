@@ -4,7 +4,7 @@ from DatabaseManager import DatabaseManager
 from Monitor import Monitor
 from Notification import Notification 
 from Weather import Weather
-from virtual_sense_hat import SenseHat
+from virtual_sense_hat import VirtualSenseHat as SenseHat
 from Schedule import Schedule
 
 class MonitorAndNotify:
