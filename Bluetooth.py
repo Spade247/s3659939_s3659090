@@ -91,10 +91,10 @@ class BluetoothManager:
           self.__notifier.setMessageBody(self.__message)
           self.__notifier.sendMessage()
 
-          print("*******************************")
-          print("*     NOTIFICATION SENT       *")
-          print("*******************************")
-          print(str(self.__head)+"\n")
+          print("*********************************")
+          print("*       NOTIFICATION SENT       *")
+          print("*********************************")
+          print(str(self.__head))
           print("\n"+str(self.__message))
           
 
