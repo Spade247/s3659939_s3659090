@@ -20,8 +20,10 @@ class Bluetooth:
          self.__currentHumidity = round(self.__dataLogger.getHumidity(),1)
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
+         
+         self.__deviceName = input("Please enter your device' name: ")
 
-         self.__bluetooth.connectToNearByDevice()
+         self.__bluetooth.connectToNearByDevice(self.__deviceName)
 
          self.__bluetooth.sendMessage()
 
