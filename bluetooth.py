@@ -10,8 +10,8 @@ class bluetooth:
          self.__dataLogger = DataLogger()
          
          
-         self.__currentTemperature = None
-         self.__currentHumidity = None
+         self.__currentTemperature = self.__dataLogger.getTemperature()
+         self.__currentHumidity = self.__dataLogger.getHumidity()
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
 
