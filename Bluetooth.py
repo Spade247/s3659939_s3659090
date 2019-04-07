@@ -20,7 +20,7 @@ class Bluetooth:
          self.__currentHumidity = self.__dataLogger.getHumidity()
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
-         
+
          self.__bluetooth.connectToNearByDevice()
 
          self.__bluetooth.sendMessage()
@@ -62,7 +62,7 @@ class BluetoothManager:
                if connectedDeviceMACAddress is not None:
                     self.__head = "Connected to " + str(deviceName) + " via Bluetooth."
 
-                    print("Connected to {} Via Bluetooth! ({}) has the MAC address: {}".format( deviceName,deviceName, connectedDeviceMACAddress))
+                    print("\nConnected to {} Via Bluetooth! ({}) has the MAC address: {}\n".format( deviceName,deviceName, connectedDeviceMACAddress))
                     print(self.__message)
                     break 
 
@@ -90,6 +90,11 @@ class BluetoothManager:
           self.__notifier.setMessageHead(self.__head)
           self.__notifier.setMessageBody(self.__message)
           self.__notifier.sendMessage()
+
+          print("*******************************")
+          print("*     NOTIFICATION SENT       *")
+          print("*******************************")
+          print("\n"+str(self.__message))
           
 
 Bluetooth()
