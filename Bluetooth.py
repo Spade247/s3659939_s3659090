@@ -20,8 +20,7 @@ class Bluetooth:
          self.__currentHumidity = self.__dataLogger.getHumidity()
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
-
-         self.__bluetooth.search("Yonas","Yonas")
+         
          self.__bluetooth.connectToNearByDevice()
 
          self.__bluetooth.sendMessage()
@@ -43,31 +42,33 @@ class BluetoothManager:
         self.__maxTemperature = self.__monitor.getMaxTemperature()
         self.__minHumidity = self.__monitor.getMinHumidity()
         self.__maxHumidity = self.__monitor.getMaxHumidity()
-        
-    def search(self,user_name, device_name):
+    
+    def connectToNearByDevice(self,deviceName = "Yonas"): 
+
           while True:
-               device_address = None
+               connectedDeviceMACAddress = None
                dt = time.strftime("%a, %d %b %y %H:%M:%S", time.localtime())
                print("\nCurrently: {}".format(dt))
-               time.sleep(3) # Sleep three seconds.
+
+               time.sleep(3) 
+               
                nearby_devices = bluetooth.discover_devices()
 
                for mac_address in nearby_devices:
-                    if device_name == bluetooth.lookup_name(mac_address, timeout = 5):
-                         device_address = mac_address
+                    if deviceName == bluetooth.lookup_name(mac_address, timeout = 5):
+                         connectedDeviceMACAddress = mac_address
                          break
-               if device_address is not None:
-                    print("Hi {}! Your phone ({}) has the MAC address: {}".format(user_name, device_name, device_address))
-                    sense = VirtualSenseHat.getSenseHat()
-                    temp = round(sense.get_temperature(), 1)
-                    sense.show_message("Hi {}! Current Temp is {}*c".format(user_name, temp), scroll_speed = 0.05)
+
+               if connectedDeviceMACAddress is not None:
+                    self.__head = "Connected to " + str(deviceName) + " via Bluetooth."
+
+                    print("Connected to {} Via Bluetooth! ({}) has the MAC address: {}".format( deviceName,deviceName, connectedDeviceMACAddress))
+                    print(self.__message)
                     break 
+
                else:
                     print("Could not find target device nearby...")
-
-    def connectToNearByDevice(self,deviceName = "Yonas"): 
-          self.__head = "Connected to " + str(deviceName) + " via Bluetooth."
-          self.__bluetooth = "connect to specific device"
+          
     
     def createMessage(self,currentTemperature,currentHumidity):
 
