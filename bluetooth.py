@@ -15,6 +15,7 @@ class bluetooth:
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
 
+         self.__bluetooth.search("Yonas","Yonas")
          self.__bluetooth.connectToNearByDevice()
 
          self.__bluetooth.sendMessage()
