@@ -21,7 +21,8 @@ class Bluetooth:
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
          
-         self.__deviceName = input("Please enter your device' name: ")
+            # self.__deviceName = input("Please enter your device' name: ")
+         self.__deviceName = "Yonas"
 
          self.__bluetooth.connectToNearByDevice(self.__deviceName)
 
