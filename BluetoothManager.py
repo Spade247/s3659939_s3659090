@@ -41,8 +41,8 @@ class BluetoothManager:
              self.__message += str(round(currentHumidity - self.__maxHumidity,1))+"% above maximum humidity.\n"
         
     def sendMessage(self):
-          self.__notifier.setMessageHead = self.__head
-          self.__notifier.setMessageBody = self.__message
+          self.__notifier.setMessageHead(self.__head)
+          self.__notifier.setMessageBody(self.__message)
           self.__notifier.sendMessage()
           
 
