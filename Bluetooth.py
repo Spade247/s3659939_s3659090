@@ -16,8 +16,8 @@ class Bluetooth:
          self.__dataLogger = DataLogger()
          
          
-         self.__currentTemperature = self.__dataLogger.getTemperature()
-         self.__currentHumidity = self.__dataLogger.getHumidity()
+         self.__currentTemperature = round(self.__dataLogger.getTemperature(),1)
+         self.__currentHumidity = round(self.__dataLogger.getHumidity(),1)
 
          self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
 
@@ -72,7 +72,7 @@ class BluetoothManager:
     
     def createMessage(self,currentTemperature,currentHumidity):
 
-        self.__message = "current Temperature: "+str(round(currentTemperature),1)+"*C\nCurrent Humidity: "+str(round(currentHumidity),1)+"%\n"
+        self.__message = "current Temperature: "+str(currentTemperature)+"*C\nCurrent Humidity: "+str(currentHumidity)+"%\n"
 
         if currentTemperature < self.__minTemperature:
              self.__message += str(round(self.__minTemperature - currentTemperature,1))+"*C below minimum temperature.\n"
