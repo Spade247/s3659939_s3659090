@@ -63,11 +63,11 @@ class BluetoothManager:
                     self.__head = "Connected to " + str(deviceName) + " via Bluetooth."
 
                     print("\nConnected to {} Via Bluetooth! ({}) has the MAC address: {}\n".format( deviceName,deviceName, connectedDeviceMACAddress))
-                    print(self.__message)
+                    
                     break 
 
                else:
-                    print("Could not find target device nearby...")
+                    print("\nCould not find target device nearby...")
           
     
     def createMessage(self,currentTemperature,currentHumidity):
@@ -94,6 +94,7 @@ class BluetoothManager:
           print("*******************************")
           print("*     NOTIFICATION SENT       *")
           print("*******************************")
+          print(str(self.__head)+"\n")
           print("\n"+str(self.__message))
           
 
