@@ -9,19 +9,19 @@ from DataLogger import DataLogger
 
 class Bluetooth:
 
-        """ 
+    """ 
             This class represents the sending of a message to a connected device
             stating the current temperature and humidity
 
-        """
+    """
 
-     def __init__(self):
+    def __init__(self):
 
-        """
+         """
             On initialisation the Bluetooth class retrieves the current Temperature and Humidity from the DataLogger class
             and sends a notification via Pushbullet with a message stating that a Bluetooth connection has been made aswell
             as the current Temperature and Humidity.
-        """
+         """
         #declare variables that handle interactions with other classes 
          self.__bluetooth = BluetoothManager()
          self.__dataLogger = DataLogger()
@@ -77,7 +77,7 @@ class BluetoothManager:
         """
 
           #search for the device until it has been found
-          while True:
+        while True:
 
             #declare variables that store the the connected device's mac address and the current time
                connectedDeviceMACAddress = None
@@ -122,10 +122,10 @@ class BluetoothManager:
           
     
     def createMessage(self,currentTemperature,currentHumidity):
-    """
+        """
             Takes in the current temperature and humidity as parameters and constructs a message that is stored 
             in the global variable __message 
-    """
+        """
         #store the first values of the message to be the current temperature and humidity
         self.__message = "current Temperature: "+str(currentTemperature)+"*C\nCurrent Humidity: "+str(currentHumidity)+"%\n"
         
@@ -143,10 +143,10 @@ class BluetoothManager:
              self.__message += str(round(currentHumidity - self.__maxHumidity,1))+"% above maximum humidity.\n"
         
     def sendMessage(self):
-    """
-            Sends a meessage via Pushbullet with the values of the global variable __head and __message
-            Once sent prints a string on the commandline of the contents of the message being sent 
-    """
+          """
+                Sends a meessage via Pushbullet with the values of the global variable __head and __message
+                Once sent prints a string on the commandline of the contents of the message being sent 
+          """
         #set the head and body of the notification that is to be sent then send it 
           self.__notifier.setMessageHead(self.__head)
           self.__notifier.setMessageBody(self.__message)
