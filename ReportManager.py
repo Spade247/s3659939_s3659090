@@ -15,6 +15,13 @@ class ReportManager:
         self.__message = None
     
     def writeIntoCSV(self,csvFile = 'report.csv'):
+        """
+        Writes the report 
+        
+        Keyword Arguments:
+            csvFile {str} -- The csv file that needs to be written to (default: {'report.csv'})
+        """
+
         self.__csvFile = csvFile
         with open(self.__csvFile, "w", newline="") as csvfile:
             writer = csv.writer(csvfile)
