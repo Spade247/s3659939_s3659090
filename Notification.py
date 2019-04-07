@@ -2,7 +2,7 @@ from DatabaseManager import DatabaseManager
 from pushbullet import Pushbullet
 class Notification:
 
-    def __init__(self,databaseManager):
+    def __init__(self,databaseManager = None):
     
         self.__databaseManager = databaseManager
         self.__pushbullet = Pushbullet("o.mhFygDkFL66fHWqvcLN4S7kW2R0xQaBU")
@@ -28,4 +28,7 @@ class Notification:
         else:
             
             pass
-    
+
+    def sendMessage(self):
+        
+        self.__push = self.__pushbullet.push_note(self.__messageHead,self.__messageBody)

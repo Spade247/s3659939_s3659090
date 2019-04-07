@@ -13,11 +13,11 @@ class bluetooth:
          self.__currentTemperature = None
          self.__currentHumidity = None
 
-         self.__message =  self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
+         self.__bluetooth.createMessage(self.__currentTemperature,self.__currentHumidity)
 
          self.__bluetooth.connectToNearByDevice()
 
-         self.__bluetooth.sendMessage(self.__message)
+         self.__bluetooth.sendMessage()
 
 
 bluetooth()

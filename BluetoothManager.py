@@ -1,13 +1,19 @@
 from Monitor import Monitor
+from Notification import Notification
 
 class BluetoothManager:
 
     def __init__(self):
 
         self.__monitor = Monitor()
+        self.__notifier = Notification()
+
         self.__connectedDevice = None
         self.__bluetooth = None
+        
+        self.__head = "Connected to " + self.__connectedDevice + " via Bluetooth"
         self.__message = None
+
         self.__minTemperature = self.__monitor.getMinTemperature()
         self.__maxTemperature = self.__monitor.getMaxTemperature()
         self.__minHumidity = self.__monitor.getMinHumidity()
@@ -33,11 +39,11 @@ class BluetoothManager:
         if currentHumidity > self.__maxHumidity:
              self.__message += str(round(currentHumidity - self.__maxHumidity,1))+"% above maximum humidity.\n"
         
-        return (self.__message)
-        
-
-    def sendMessage(self,message):
-        self.__bluetooth = "do something"
+    def sendMessage(self):
+          self.__notifier.setMessageHead = self.__head
+          self.__notifier.setMessageBody = self.__message
+          self.__notifier.sendMessage()
+          
 
 
 
