@@ -11,7 +11,7 @@ class BluetoothManager:
         self.__connectedDevice = None
         self.__bluetooth = None
         
-        self.__head = "Connected to " + self.__connectedDevice + " via Bluetooth"
+        self.__head = "Connected to " + str(self.__connectedDevice) + " via Bluetooth."
         self.__message = None
 
         self.__minTemperature = self.__monitor.getMinTemperature()
@@ -21,6 +21,7 @@ class BluetoothManager:
         
     
     def connectToNearByDevice(self,deviceName = "Yonas"):
+            self.__connectedDevice = deviceName
             self.__bluetooth = "connect to specific device"
     
     def createMessage(self,currentTemperature,currentHumidity):
