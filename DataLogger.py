@@ -1,3 +1,8 @@
+"""
+Authors: Yonas Sisay s3659939 
+         Amrit Mundi s3659990
+"""
+# Import relevant modules and classes to be used by the program
 from datetime import datetime
 from datetime import date
 from virtual_sense_hat import VirtualSenseHat 

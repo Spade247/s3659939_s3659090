@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+"""
+Authors: Yonas Sisay s3659939 
+         Amrit Mundi s3659990
+"""
+# Import relevant modules and classes to be used by the program
 import json 
+
 
 class Monitor:
     def __init__(self):

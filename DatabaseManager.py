@@ -1,3 +1,8 @@
+"""
+Authors: Yonas Sisay s3659939 
+         Amrit Mundi s3659990
+"""
+# Import relevant modules and classes to be used by the program
 from Database import Database
 from DataLogger import DataLogger
 
