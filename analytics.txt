@@ -1,0 +1,26 @@
+With the data that you have, what kind of data visualisation graph should be used? (Scatter plots, Bar charts and Histograms, Line plots, Pie charts, etc.)
+
+A line plot and bar chart has been chosen to represent the temperature data we have obtained via our Raspberry Pi.
+
+What should be represented in the above graph? Why did you make that decision?
+
+On the line plot the there are two lines which represent the average temperature and the actual temperature across the given days respectively. The line plot proved to be most comprehensive when it came to comparing the daily temperature with the average temperature.
+
+The bar graph represents the dates and the actual temperature on that specific date. With the data we have obtained it was suitable to compare the temperatures over a consecutive number of days - this would be best displayed through the use of a bar chart.
+
+Python supports numerous data visualisation libraries. Which two libraries did you narrow it down to?
+
+We decided to narrow it down to the following:
+- Pygal
+- Leather
+
+An analytical comparison of the libraries used, advantages/disadvantages,
+simplicity/complexity, flexibility/configurations, anything you may think is necessary.
+
+The Pygal library was chosen over other similar libraries like Bokeh and Plotly as each chart type is packaged into a method which makes it easy to create a decent looking chart with minimal code. Also the format the chart is outputted as (svg) suits our dataset range.
+
+Leather was chosen as it produces a basic chart while representing all necessary variables needed to produce a comprehensive chart. 
+
+In comparison to Pygal, Leather offers less chart customisation features and produces less complex charts compared to other python libraries.
+
+Ultimately, Pygal and Leather provided to be the best solution as they were simple to execute and understand compared to other libraries. 
